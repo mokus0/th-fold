@@ -18,5 +18,5 @@ description:            Very rough-around-the-edges template haskell
 
 Library
   hs-source-dirs:       src
-  exposed-modules:      Util.TH.Fold
+  exposed-modules:      Language.Haskell.TH.Fold
   build-depends:        base >= 3, template-haskell
