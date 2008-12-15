@@ -3,6 +3,13 @@
  -  First attempt at a generic catamorphism...
  -}
 
+-- |This is \"very old\" code and I'd like to clean it up, but it more or less
+--  works so it's a pretty low priority right now.
+--
+-- My apologies for inflicting this code upon the world ( ;-) ), but I
+-- did not see anything else \"out there\", so I figured I'd provide
+-- a seed crystal around which something better might form.
+
 module Util.TH.Fold (fold) where
 
 import Language.Haskell.TH
@@ -66,6 +73,8 @@ foldClause self ty funcNames nCons con conN = do
                 | x == ty   -> appE self argE
             AppT (ConT x) _ 
                 | x == ty   -> appE self argE
+            -- probably wrong; should check applied-to type for equality
+            -- with type parameter?
             AppT (AppT (ConT x) _) _ 
                 | x == ty   -> appE self argE
             _           -> argE
@@ -84,6 +93,17 @@ foldDec fName self ty funcNames cons = funD fName clauses
         nCons = length cons
         clauses = zipWith (foldClause self ty funcNames nCons) cons [0..]
 
+-- |Generate a very basic fold operation given the 'Name' of a type
+-- constructor.  Data constructors of the specified type become function
+-- parameters to the fold, in the same order the type defines them.  Simple
+-- recursive references in the type's constructors become recursive calls to
+-- the fold.
+-- 
+-- At present this only properly handles very simple types.
+-- Basically, that means types that have no parameters, types with one parameter
+-- where the only recursion is via field slots with types of the form 'T a'
+-- where 'a' is the type of the parameter, and more complicated types without
+-- recursion.
 fold :: Name -> ExpQ
 fold ty = do
     cons <- typeCons ty
