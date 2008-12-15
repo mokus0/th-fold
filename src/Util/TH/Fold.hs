@@ -1,6 +1,6 @@
 {-
  -  ``Util/TH/Fold''
- -  First attempt at a generic foldmorphism...
+ -  First attempt at a generic catamorphism...
  -}
 
 module Util.TH.Fold (fold) where
