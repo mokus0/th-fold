@@ -13,13 +13,6 @@ import Language.Haskell.TH.Syntax
 
 import Control.Monad
 
--- some fun: |$(fold ''Void)| panics ghc 6.6.1; check 6.8.x later
-data Void
-
-instance Show Void
-        where
-                showsPrec p void = showString "(void)"
-
 replaceAt :: Integral a => a -> b -> [b] -> [b]
 replaceAt _     _ []     = []
 replaceAt 0     y (_:xs) = y : xs
