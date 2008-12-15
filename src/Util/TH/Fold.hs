@@ -6,7 +6,7 @@
         EmptyDataDecls
   #-}
 
-module Util.TH.Fold where
+module Util.TH.Fold (fold) where
 
 import Language.Haskell.TH
 import Language.Haskell.TH.Syntax
