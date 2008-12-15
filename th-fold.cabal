@@ -1,6 +1,7 @@
 name:                   th-fold
 version:                0.0.0.1
 stability:              provisional
+license:                PublicDomain
 
 cabal-version:          >= 1.2
 build-type:             Simple
