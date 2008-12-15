@@ -10,7 +10,7 @@
 -- did not see anything else \"out there\", so I figured I'd provide
 -- a seed crystal around which something better might form.
 
-module Util.TH.Fold (fold) where
+module Language.Haskell.TH.Fold (fold) where
 
 import Language.Haskell.TH
 import Language.Haskell.TH.Syntax
