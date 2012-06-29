@@ -23,4 +23,4 @@ source-repository head
 Library
   hs-source-dirs:       src
   exposed-modules:      Language.Haskell.TH.Fold
-  build-depends:        base >= 3, template-haskell
+  build-depends:        base >= 3 && < 5, template-haskell
