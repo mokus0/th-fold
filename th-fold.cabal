@@ -3,18 +3,22 @@ version:                0.0.0.1
 stability:              provisional
 license:                PublicDomain
 
-cabal-version:          >= 1.2
+cabal-version:          >= 1.6
 build-type:             Simple
 
 author:                 James Cook <mokus@deepbondi.net>
 maintainer:             James Cook <mokus@deepbondi.net>
-homepage:               http://code.haskell.org/~mokus/th-fold
+homepage:               https://github.com/mokus0/th-fold
 
 category:               Development
 synopsis:               TH fold generator
 description:            Very rough-around-the-edges template haskell
                         function for generating basic catamorphisms for
                         algebraic data types.
+
+source-repository head
+  type:                 git
+  location:             https://github.com/mokus0/th-fold.git
 
 Library
   hs-source-dirs:       src
